@@ -1,5 +1,5 @@
 export class ToDoItem {
-  id: string;
+  id: number;
   displayName: string;
-  status: string;
+  completed: boolean;
 }
