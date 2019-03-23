@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AddTodoComponent } from './modules/components/add-todo/add-todo.component';
 import { UpdateTodoComponent } from './modules/components/update-todo/update-todo.component';
 import { CompletedTodoComponent } from './modules/components/completed-todo/completed-todo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CompletedTodoComponent } from './modules/components/completed-todo/comp
     CompletedTodoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

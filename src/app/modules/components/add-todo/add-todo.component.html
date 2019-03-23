@@ -2,6 +2,17 @@
   ADD ITEM
   <hr/>
 
-  <input type="text" />
-  <button>Add</button>
+  <form [formGroup]="addForm" (ngSubmit)="addItem()">
+      <div class="form-group">
+        <input class="form-control" placeholder="Please enter todo name" formControlName="todoName" />
+      </div> 
+      
+      <div *ngIf="addForm.controls['todoName'].invalid && (addForm.controls['todoName'].dirty || addForm.controls['todoName'].touched)" class="alert alert-danger">
+          <div *ngIf="addForm.controls['todoName'].errors.required">
+            <span>Name is required.</span>
+      </div>
+        
+      </div>
+    <button [disabled]="addForm.invalid" (click)="addItem()"><a>Add</a></button>
+  </form>
 </div>
