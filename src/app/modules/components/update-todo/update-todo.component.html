@@ -2,10 +2,11 @@
   TODO
   <hr/>
 
-  <input type="checkbox" />
-  <span>Pay Bills</span>
-  <button>Edit</button>
-  <button>Delete</button>
-
-  {{toDoItemsList| json}}
+  <div *ngFor="let toDoItem of toDoItemsList">
+      <input type="checkbox" />
+      <span>{{ toDoItem.displayName }}</span>
+      <button>Edit</button>
+      <button>Delete</button>
+  </div>
+  
 </div>
