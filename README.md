@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
-##Screenshot
+## Screenshot
 
-![ToDo App](/todo-ui/master/src/assets/Todo-Application.png?raw=true)
+![ToDo App](https://raw.githubusercontent.com/vikey913/todo-ui/master/src/assets/Todo-Application.png)
 
-##Install Dependencies
+## Install Dependencies
 
 Run `yarn install` or `npm install` to get node_modules dependency
 
