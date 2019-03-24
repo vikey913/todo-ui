@@ -12,9 +12,10 @@ import { runInThisContext } from 'vm';
 export class UpdateTodoComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   toDoItemsList: Array<ToDoItem>;
-
+  edit: boolean;
   constructor(private toDoService: TodoService) {
     this.toDoItemsList = new Array<ToDoItem>();
+    this.edit = false;
   }
 
   ngOnInit() {
@@ -30,6 +31,10 @@ export class UpdateTodoComponent implements OnInit, OnDestroy {
   checkValue = (todoItem: ToDoItem) => {
     this.deleteItem(todoItem);
     this.toDoService.completeToDo(todoItem);
+  }
+
+  toggleEdit = () => {
+    this.edit = !this.edit;
   }
 
   deleteItem = (toDoItem: ToDoItem) => {

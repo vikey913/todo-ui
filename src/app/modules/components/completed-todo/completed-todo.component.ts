@@ -11,9 +11,11 @@ import { ToDoItem } from '../../modes/todo-item.model';
 export class CompletedTodoComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   toDoItemsList: Array<ToDoItem>;
+  edit: boolean;
 
   constructor(private todoService: TodoService) {
     this.toDoItemsList = new Array<ToDoItem>();
+    this.edit = false;
   }
 
   ngOnInit() {
@@ -29,6 +31,10 @@ export class CompletedTodoComponent implements OnInit, OnDestroy {
   checkValue = (todoItem: ToDoItem) => {
     this.deleteItem(todoItem);
     this.todoService.addTodo(todoItem);
+  }
+
+  toggleEdit = () => {
+    this.edit = !this.edit;
   }
 
   deleteItem = (toDoItem: ToDoItem) => {
