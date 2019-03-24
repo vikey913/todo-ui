@@ -26,4 +26,8 @@ export class UpdateTodoComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+  deleteItem = (toDoItem: ToDoItem) => {
+    this.toDoItemsList = this.toDoItemsList.filter(item => item !== toDoItem);
+  }
 }
