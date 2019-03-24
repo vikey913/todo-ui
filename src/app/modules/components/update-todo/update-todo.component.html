@@ -3,7 +3,7 @@
   <hr/>
 
   <div *ngFor="let toDoItem of toDoItemsList">
-      <input type="checkbox" [(ngModel)]="isChecked" (change)="checkValue(toDoItem)" />
+      <input type="checkbox" (change)="checkValue(toDoItem)" />
       <span *ngIf="!edit">{{ toDoItem.displayName }}</span>
       <input *ngIf="edit" type="text" [(ngModel)]="toDoItem.displayName">
       <button (click)="toggleEdit()">
