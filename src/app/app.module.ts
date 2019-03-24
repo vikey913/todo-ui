@@ -7,6 +7,7 @@ import { UpdateTodoComponent } from './modules/components/update-todo/update-tod
 import { CompletedTodoComponent } from './modules/components/completed-todo/completed-todo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodoService } from './services/todo.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TodoService } from './services/todo.service';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

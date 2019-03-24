@@ -5,17 +5,27 @@ import { Observable, Subject, of, BehaviorSubject, ReplaySubject } from 'rxjs';
 @Injectable()
 
 export class TodoService {
-  private _toDoSource: Subject<ToDoItem>;
+  private _toDoUpdateSource: Subject<ToDoItem>;
+  private _toDoCompleteSource: Subject<ToDoItem>;
 
   constructor() {
-    this._toDoSource = new ReplaySubject<ToDoItem>();
+    this._toDoUpdateSource = new Subject<ToDoItem>();
+    this._toDoCompleteSource = new Subject<ToDoItem>();
   }
 
   addTodo = (toDoItem: ToDoItem) => {
-    this._toDoSource.next(toDoItem);
+    this._toDoUpdateSource.next(toDoItem);
   }
 
-  getToDoSource = (): Observable<any> => {
-    return this._toDoSource;
+  completeToDo = (toDoItem: ToDoItem) => {
+    this._toDoCompleteSource.next(toDoItem);
+  }
+
+  getToDoUpdateSource = (): Observable<any> => {
+    return this._toDoUpdateSource;
+  }
+
+  getToDoCompleteSource = (): Observable<any> => {
+    return this._toDoCompleteSource;
   }
 }

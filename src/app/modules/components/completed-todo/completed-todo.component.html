@@ -2,8 +2,11 @@
   COMPLETED
   <hr/>
 
-  <input type="checkbox" />
-  <span style="text-decoration: line-through">See the Doctor</span>
-  <button>Edit</button>
-  <button>Delete</button>
+  <div *ngFor="let toDoItem of toDoItemsList">
+      <input type="checkbox" [(ngModel)]="isChecked" (change)="checkValue(toDoItem)" />
+      <span style="text-decoration: line-through">{{ toDoItem.displayName }}</span>
+      <button>Edit</button>
+      <button (click)="deleteItem(toDoItem)">Delete</button>
+  </div>
+  
 </div>

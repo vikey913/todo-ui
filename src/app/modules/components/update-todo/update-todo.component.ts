@@ -18,13 +18,18 @@ export class UpdateTodoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription = this.toDoService.getToDoSource().subscribe(data => {
+    this.subscription = this.toDoService.getToDoUpdateSource().subscribe(data => {
       this.toDoItemsList.push(data);
     });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  checkValue = (todoItem: ToDoItem) => {
+    this.deleteItem(todoItem);
+    this.toDoService.completeToDo(todoItem);
   }
 
   deleteItem = (toDoItem: ToDoItem) => {
