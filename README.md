@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ##Screenshot
 
-![ToDo App](/todo-ui/src/assets/Todo-Application.png?raw=true)
+![ToDo App](/todo-ui/master/src/assets/Todo-Application.png?raw=true)
 
 ##Install Dependencies
 
