@@ -35,5 +35,6 @@ export class AddTodoComponent implements OnInit, OnDestroy {
     this.toDoItem.displayName = this.addForm.value.todoName;
     this.toDoItem.completed = false;
     this.todoService.addTodo(this.toDoItem);
+    this.addForm.reset();
   }
 }
