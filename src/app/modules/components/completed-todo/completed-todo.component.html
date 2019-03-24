@@ -2,15 +2,31 @@
   COMPLETED
   <hr class="black-thick"/>
 
-  <div *ngFor="let toDoItem of toDoItemsList">
-      <input type="checkbox" checked (change)="checkValue(toDoItem)" />
-      <span *ngIf="!toDoItem.edit" style="text-decoration: line-through">{{ toDoItem.displayName }}</span>
-      <input *ngIf="toDoItem.edit" type="text" [(ngModel)]="toDoItem.displayName" />
-      <button (click)="toggleEdit(toDoItem)">
+  <div *ngFor="let toDoItem of toDoItemsList"  class="form">
+      <div class="row">
+          <div class="form-group pl-3 pt-3">
+            <input type="checkbox" checked (change)="checkValue(toDoItem)" />
+          </div>
+
+          <div class="form-group col-md-7 pt-3">
+              <span *ngIf="!toDoItem.edit" style="text-decoration: line-through">{{ toDoItem.displayName }}</span>
+              <input class="form-control" *ngIf="toDoItem.edit" type="text" [(ngModel)]="toDoItem.displayName" />
+          </div>
+        
+      <button  class="btn btn-link ml-3" (click)="toggleEdit(toDoItem)">
           <span *ngIf="!toDoItem.edit">Edit</span>
           <span *ngIf="toDoItem.edit">Save</span>
       </button>
-      <button (click)="deleteItem(toDoItem)">Delete</button>
+      <button class="btn btn-link" (click)="deleteItem(toDoItem)">Delete</button>
+
+      <div *ngIf="toDoItem.displayName.length == 0" class="ml-5">
+          <span style="color:red">Todo Name is required</span>
+      </div>    
+    </div>
+
+    <div class="form-group">
+        <hr />
+      </div>
   </div>
   
 </div>

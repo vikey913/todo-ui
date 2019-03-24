@@ -2,17 +2,16 @@
     <div>TODO</div>
   <hr class="black-thick"/>
 
-  <div *ngFor="let toDoItem of toDoItemsList; let i = index" class="form">
+  <div *ngFor="let toDoItem of toDoItemsList" class="form">
     <div class="row">
-      <div class="form-group pl-3">
+      <div class="form-group pl-3 pt-3">
         <input type="checkbox" (change)="checkValue(toDoItem)" />
       </div>
     
-      <div class="form-group col-md-7">
+      <div class="form-group col-md-7 pt-3">
         <span *ngIf="!toDoItem.edit">{{ toDoItem.displayName }}</span>
         <input class="form-control" *ngIf="toDoItem.edit" type="text" [(ngModel)]="toDoItem.displayName">
       </div>
-            
 
       <button class="btn btn-link ml-3" (click)="toggleEdit(toDoItem)">
         <span *ngIf="!toDoItem.edit">Edit</span>
@@ -20,7 +19,7 @@
       </button>
       <button class="btn btn-link" (click)="deleteItem(toDoItem)">Delete</button>
 
-      <div *ngIf="toDoItem.displayName.length == 0">
+      <div *ngIf="toDoItem.displayName.length == 0" class="ml-5">
           <span style="color:red">Todo Name is required</span>
       </div>    
     </div>  

@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToDoItem } from '../../modes/todo-item.model';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { TodoService } from 'src/app/services/todo.service';
-import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-update-todo',
