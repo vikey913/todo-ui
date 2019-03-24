@@ -11,11 +11,9 @@ import { ToDoItem } from '../../modes/todo-item.model';
 export class CompletedTodoComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   toDoItemsList: Array<ToDoItem>;
-  edit: boolean;
 
   constructor(private todoService: TodoService) {
     this.toDoItemsList = new Array<ToDoItem>();
-    this.edit = false;
   }
 
   ngOnInit() {
@@ -33,8 +31,8 @@ export class CompletedTodoComponent implements OnInit, OnDestroy {
     this.todoService.addTodo(todoItem);
   }
 
-  toggleEdit = () => {
-    this.edit = !this.edit;
+  toggleEdit = (toDoItem: ToDoItem) => {
+    this.toDoItemsList.filter(item => item.id === toDoItem.id).forEach(item => item.edit = !item.edit);
   }
 
   deleteItem = (toDoItem: ToDoItem) => {

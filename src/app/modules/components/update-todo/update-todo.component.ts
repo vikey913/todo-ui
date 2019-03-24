@@ -12,10 +12,8 @@ import { runInThisContext } from 'vm';
 export class UpdateTodoComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   toDoItemsList: Array<ToDoItem>;
-  edit: boolean;
   constructor(private toDoService: TodoService) {
     this.toDoItemsList = new Array<ToDoItem>();
-    this.edit = false;
   }
 
   ngOnInit() {
@@ -33,8 +31,8 @@ export class UpdateTodoComponent implements OnInit, OnDestroy {
     this.toDoService.completeToDo(todoItem);
   }
 
-  toggleEdit = () => {
-    this.edit = !this.edit;
+  toggleEdit = (toDoItem: ToDoItem) => {
+    this.toDoItemsList.filter(item => item.id === toDoItem.id).forEach(item => item.edit = !item.edit);
   }
 
   deleteItem = (toDoItem: ToDoItem) => {
